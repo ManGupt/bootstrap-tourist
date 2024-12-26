@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+		GSTMitr
+    </title>
+    <link rel="stylesheet" href="lib/bootstrap/dist/v5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="lib/bootstrap/dist/v5.2/css/bootstrap-icons.css" />
+	<link href="bootstrap-tourist.css" rel="stylesheet">
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/bootstrap/dist/v5.2/js/bootstrap.bundle.js"></script>
+	<script src="bootstrap-tourist.js"></script>
+    <style>
+        .input-validation-error {
+            color: red;
+            border-color: red
+        }
+
+        .field-validation-error {
+            color: red
+        }
+
+        .validation-summary-errors {
+            color: red
+        }
+        .custom-popover {
+            --bs-popover-max-width: 200px;
+            --bs-popover-border-color: var(--bs-primary);
+            --bs-popover-header-bg: var(--bs-primary);
+            --bs-popover-header-color: var(--bs-white);
+            --bs-popover-body-padding-x: 1rem;
+            --bs-popover-body-padding-y: .5rem;
+        }
+    </style>
+</head>
+<body>
+<div class="text-center">
+    <h1 class="text-center">
+        Login
+    </h1>
+    <form id="login_form" method="post" class="text-left" action="test.html" novalidate="novalidate">
+        <input type="hidden" id="AvlHeight" name="AvlHeight">
+        <input type="hidden" id="AvlWidth" name="AvlWidth">
+        <input type="hidden" id="FullHeight" name="FullHeight">
+        <input type="hidden" id="FullWidth" name="FullWidth">
+        <input type="hidden" id="ColorDepth" name="ColorDepth">
+        <input type="hidden" id="PixelDepth" name="PixelDepth">
+        <div class="d-flex flex-row mb-1"></div>
+
+        <div class="d-flex flex-row mb-1">
+            <div class="col-sm-4"></div>
+            <div class="form-floating py-2 col-sm-4">
+    <input class="form-control" style="height: calc(2.5rem + 2px);" id="user" name="user" type="text" placeholder="Username" value="" data-val="true" data-val-required="">
+    <span class="field-validation-valid" data-valmsg-for="user" data-valmsg-replace="true"></span>
+    <label for="user">Username</label>
+</div>
+            <div class="col-sm-4"></div>
+        </div>
+        <div class="d-flex flex-row mb-1">
+            <div class="col-sm-4"></div>
+            <div class="form-floating py-2 col-sm-4">
+    <input class="form-control" style="height: calc(2.5rem + 2px);" id="password" name="password" type="password" placeholder="Password" value="" data-val="true" data-val-required="">
+    <span class="field-validation-valid" data-valmsg-for="password" data-valmsg-replace="true"></span>
+    <label for="password">Password</label>
+</div>
+            <div class="col-sm-4"></div>
+        </div>
+
+        <div class="d-flex flex-row mb-1">
+            <div class="col-sm-7"></div>
+            <div class="col-sm-1">
+                <input class="btn btn-info" type="submit" name="submit" value="Login">
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+        <div class="d-flex flex-row mb-1">
+            <button type="button" class="btn btn-secondary" data-bs-toggle="popover" data-bs-placement="right" data-bs-custom-class="custom-popover" data-bs-title="Custom popover" data-bs-content="This popover is themed via CSS variables.<br/><button class='btn btn-sm btn-default'>MKG</button>" data-bs-original-title="" title="">
+                Custom popover
+            </button>
+            <a role="button" class="btn btn-secondary" tabindex="-1" data-bs-toggle="popover" data-bs-placement="right" data-bs-custom-class="custom-popover" data-bs-content="This popover is themed via CSS variables.<br/><button class='btn btn-sm btn-default'>MKG</button>" data-bs-trigger="focus" data-bs-original-title="" title="">
+                Custom popover
+            </a>
+        </div>
+    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8Kl7EUZUG0xOt3Ma8y9UcINR3LKPrY9UBhYPTSL4xJiu-YkwT65QQQZdRDoK_W7_2k_dHsprD3gtcvYJ1t0RHTx97DObeRgC1hZAHGy1YL9QhGQn_pj8ekoWlw3UPPeQD8CfeUCuZdkPsd7BHRYDskg"></form>
+</div>
+	<script>
+var tour = new Tour({
+    framework: 'bootstrap5',
+    steps: [
+        {
+            element: '#user',
+            title: 'Title of my step',
+            content: 'Content of my step. make it large to see step text.'
+        },
+        {
+            element: '#password',
+            title: 'Title of my step',
+            content: 'Content of my step. make it large to see step text.'
+        }
+    ],
+	debug: true,
+	sanitize: false,
+    localization: {
+        buttonTexts: {
+            prevButton: 'Back',
+            nextButton: 'Go',
+            pauseButton: 'Wait',
+            resumeButton: 'Continue',
+            endTourButton: 'Ok, enough'
+        }
+    },
+    //sanitizeFunction: function(stepContent) {
+    //    // POTENTIAL SECURITY RISK
+    //    // bypass Bootstrap sanitizer, perform no sanitization, tour step content will be exactly as templated in tourSteps.
+    //    return stepContent;
+    //}
+});
+
+// Start the tour - note, no call to .init() is required
+tour.restart();
+	</script>
+    <script>
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+</body>
+</html>
